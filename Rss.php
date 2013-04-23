@@ -15,11 +15,11 @@ class Rss extends CController{
    	var $items = array();
 
    	/**
-     * 添加基本信息
-     * @param string $title
-     * @param string $link
-     * @param string $description
-     */
+     	* 添加基本信息
+	* @param string $title
+	* @param string $link
+	* @param string $description
+	*/
    	public function __construct($title, $link, $description) {
        	$this->channel_title = $title;
        	$this->channel_link = $link;
@@ -29,12 +29,12 @@ class Rss extends CController{
    	}
 
    	/**
-     * 添加一个节点
-     * @param string $title
-     * @param string $link
-     * @param string $description
-     * @param date $pubDate
-     */
+     	* 添加一个节点
+     	* @param string $title
+     	* @param string $link
+    	* @param string $description
+     	* @param date $pubDate
+     	*/
    	public function addItem($title, $link, $description ,$pubDate) {
        	$this->items[] = array('title' => $title ,
                         'link' => $link,
@@ -43,8 +43,8 @@ class Rss extends CController{
    	}
 
    	/**
-     * 构建xml元素
-     */
+     	* 构建xml元素
+     	*/
 	public function buildRSS() {
        	$s = <<<RSS
 <?xml version='1.0' encoding='utf-8'?>\n
