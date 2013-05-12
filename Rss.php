@@ -81,6 +81,7 @@ RSS;
 
         // start items
         for ($i=0;$i<count($this->items);$i++) {
+          //Helper::truncate_utf8_string
           $description = Helper::truncate_utf8_string($this->items[$i]['content'], 200,'');
           $content = $this->items[$i]['content'];
             $s .= "<item>\n";
