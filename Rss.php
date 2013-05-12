@@ -15,31 +15,6 @@ class Rss extends CController{
     var $author = '';
     var $items = array();
 
-<<<<<<< HEAD
-   	/**
-     	* 添加基本信息
-	* @param string $title
-	* @param string $link
-	* @param string $description
-	*/
-   	public function __construct($title, $link, $description) {
-       	$this->channel_title = $title;
-       	$this->channel_link = $link;
-       	$this->channel_description = $description;
-       	$this->pubDate = Date('Y-m-d H:i:s',time());
-       	$this->lastBuildDate = Date('Y-m-d H:i:s',time());
-   	}
-
-   	/**
-     	* 添加一个节点
-     	* @param string $title
-     	* @param string $link
-    	* @param string $description
-     	* @param date $pubDate
-     	*/
-   	public function addItem($title, $link, $description ,$pubDate) {
-       	$this->items[] = array('title' => $title ,
-=======
     /**
      * 添加基本信息
      * @param string $title
@@ -65,25 +40,16 @@ class Rss extends CController{
     public function addItem($title, $link, $content ,$pubDate,$guid='') {
         $this->items[] = array('title' => $title ,
                 'guid'=>$guid,
->>>>>>> 修改了author，增加了描述等
                         'link' => $link,
                         'content' => $content,
                         'pubDate' => $pubDate);
     }
 
-<<<<<<< HEAD
-   	/**
-     	* 构建xml元素
-     	*/
-	public function buildRSS() {
-       	$s = <<<RSS
-=======
     /**
      * 构建xml元素
      */
   public function buildRSS() {
         $s = <<<RSS
->>>>>>> 修改了author，增加了描述等
 <?xml version='1.0' encoding='utf-8'?>\n
 <rss xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" xmlns:slash="http://purl.org/rss/1.0/modules/slash/" version="2.0">\n
 RSS;
@@ -210,4 +176,3 @@ RSS;
         fclose($handle);
     }
 }
-?>
